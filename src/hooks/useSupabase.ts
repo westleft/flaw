@@ -15,9 +15,5 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   },
 })
 
-export function useSupabase() {
-  return supabase
-}
-
 // 如果之後需要也可以直接 export supabase
 export { supabase }

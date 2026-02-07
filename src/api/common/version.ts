@@ -7,7 +7,7 @@ interface Version {
   created_at: string
 }
 
-export async function getVersion() {
+export async function getVersion(): Promise<Version> {
   try {
     const { data } = await supabase.from('version')
       .select('*')
@@ -23,8 +23,15 @@ export async function getVersion() {
 }
 
 export function useGetVersion() {
-  return useQuery<Version>({
+  return useQuery({
     queryKey: ['version'],
     queryFn: getVersion,
+    select: (data) => {
+      return {
+        version: data.version,
+        minVersion: data.min_version,
+        created_at: data.created_at,
+      }
+    },
   })
 }

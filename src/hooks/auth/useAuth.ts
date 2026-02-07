@@ -1,9 +1,8 @@
 import { useAuthStore } from '@/src/store'
 import { useEffect } from 'react'
-import { useSupabase } from '../useSupabase'
+import { supabase } from '../useSupabase'
 
 function useAuthStateChange() {
-  const supabase = useSupabase()
   const { setIsLoggedIn } = useAuthStore()
 
   useEffect(() => {

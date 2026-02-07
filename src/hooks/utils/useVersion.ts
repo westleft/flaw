@@ -16,7 +16,7 @@ export function useVersion() {
       return
     }
 
-    if (semver.lt(currentVersion, data.min_version)) {
+    if (semver.lt(currentVersion, data.minVersion)) {
       // 強制更新
       setUpdateInfo({
         forceUpdate: true,

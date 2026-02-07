@@ -2,7 +2,7 @@ import { parseTokensFromUrl } from '@/src/utils'
 import * as Linking from 'expo-linking'
 import * as WebBrowser from 'expo-web-browser'
 import { Alert } from 'react-native'
-import { useSupabase } from '../useSupabase'
+import { supabase } from '../useSupabase'
 
 function useGoogleLogin() {
   /**
@@ -11,7 +11,6 @@ function useGoogleLogin() {
    */
   WebBrowser.maybeCompleteAuthSession()
 
-  const supabase = useSupabase()
   const redirectUrl = Linking.createURL('/')
 
   /**

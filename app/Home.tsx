@@ -1,10 +1,9 @@
 import UpdateModal from '@/src/components/modals/VersionUpdate'
-import { useSupabase, useVersion } from '@/src/hooks'
+import { supabase, useVersion } from '@/src/hooks'
 import { Text, TouchableOpacity, View } from 'react-native'
 
 export default function Home() {
   const { updateInfo } = useVersion()
-  const supabase = useSupabase()
 
   const logout = async () => {
     await supabase.auth.signOut()
